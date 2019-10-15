@@ -4,8 +4,8 @@ A basic repo I made so that I will spend less time in creating my next projects.
 
 ## Get started
 
-1) git clone 
-2) make install
+1) git clone https://github.com/MarcFaussurier/C-CPP-starter.git yourproject
+2) cd yourproject && make install
 
 ## Comands
 
