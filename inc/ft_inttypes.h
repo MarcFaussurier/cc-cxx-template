@@ -1,12 +1,18 @@
-#ifndef FT_INTTYPES
-# define FT_INTTYPES
-# ifdef __cplusplus
-extern "C" {
-# endif
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_inttypes.h                                    .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <mfaussur@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/10/15 17:09:22 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/15 17:41:01 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
 
-typedef unsigned int t_size_t;
+#ifndef FT_INTTYPES_H
+# define FT_INTTYPES_H
 
-# ifdef __cplusplus
-}
-# endif
+typedef unsigned int	t_size_t;
 #endif
