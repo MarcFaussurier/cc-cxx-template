@@ -1,13 +1,14 @@
-# C-CPP-starter
+### C-CPP-starter
 
 A basic repo I made so that I will spend less time in creating my next projects.
 
-# Get started
+### Get started
 
 git clone .... or download ad a .zip
 then run ./install.sh to install deps
 
-# Comands 
+### Comands 
+
 `
 make:             Compile
 
@@ -22,7 +23,7 @@ make clean:       remove .o and .d
 make fclean       remove standalone compiled output (.out .a or .so)
 `
 
-# Fun makefile
+### Fun makefile
 
 `
 # default variables
