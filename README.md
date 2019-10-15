@@ -1,13 +1,13 @@
-#C-CPP-starter
+# C-CPP-starter
 
 A basic repo I made so that I will spend less time in creating my next projects.
 
-##Get started
+## Get started
 
 1) git clone 
 2) make install
 
-##Comands
+## Comands
 
 - make
 - make test 
@@ -17,5 +17,5 @@ A basic repo I made so that I will spend less time in creating my next projects.
 - make fclean
 - make norme
 
-##Before pushing "la moulinette" dont forget to delete the .misc repo
+## Before pushing "la moulinette" dont forget to delete the .misc repo
 - make release
