@@ -1,8 +1,15 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
 #ifndef STRING_H
+# define STRING_H
 # include <ft.h>
 
-size_t ft_strlen(const char *s);
+t_size_t ft_strlen(const char *s);
 
-size_t ft_strnlen(const char *s, size_t maxlen);
+t_size_t ft_strnlen(const char *s, t_size_t maxlen);
 
+#endif
+#ifdef __cplusplus
+}
 #endif

@@ -1,9 +1,9 @@
 #include <ft.h>
 #include <ft_string.h>
 
-size_t ft_strlen(const char *s)
+t_size_t ft_strlen(const char *s)
 {
-	size_t	i;
+	t_size_t	i;
 
 	i = 0;
 	while (s[i])
@@ -11,9 +11,9 @@ size_t ft_strlen(const char *s)
 	return (i);
 }
 
-size_t ft_strnlen(const char *s, size_t maxlen)
+t_size_t ft_strnlen(const char *s, t_size_t maxlen)
 {
-	size_t	i;
+	t_size_t	i;
 
 	i = 0;
 	while (s[i] && i < maxlen)
