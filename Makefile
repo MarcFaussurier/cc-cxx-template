@@ -14,7 +14,7 @@ include .misc/deps/ezbuild/footer.mk
 install:
 	./.misc/install.sh
 
-norminette:
+norme:
 	norminette
 
 release:
