@@ -3,6 +3,7 @@
 # ifdef __cplusplus
 extern "C" {
 # endif
+
 typedef unsigned int t_size_t;
 
 # ifdef __cplusplus
