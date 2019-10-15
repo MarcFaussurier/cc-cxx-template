@@ -1,5 +1,5 @@
 # default variables
-include deps/ezbuild/ezbuild/header.mk
+include deps/ezbuild/header.mk
 
 # here you can overide default values set inside header.mk
 # mimal example:
@@ -8,4 +8,4 @@ TYPE		:= static
 DEBUG		:= 0
 
 # default build rules
-include deps/ezbuild/ezbuild/footer.mk
+include deps/ezbuild/footer.mk
