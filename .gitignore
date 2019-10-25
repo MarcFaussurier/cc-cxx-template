@@ -3,6 +3,7 @@
 .idea/*
 *.swp
 *.swap
+*.bak
 
 # MacOS
 .DS_Store
