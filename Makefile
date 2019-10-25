@@ -1,7 +1,7 @@
 # =============================================================================
 # ==================== GENERATED SECTION ======================================
 # =============================================================================
-CSRC			:=./src/ft_string.c
+CSRC		:=./src/ft_string.c
 CXXSRC		:=
 TESTSRC		:=./misc/tests/utils/vmfill.cpp\
 ./misc/tests/utils/print.cpp\
@@ -87,10 +87,14 @@ make:
 		$(EZBUILD)/Makemakefile
 update:
 		$(EZBUILD)/update-deps.sh
-watch-compile:
-		source $(EZBUILD)/watcher.sh "make" "$(SRCDIR)" "$(TESTDIR)"
+run:
+		./$(NAME)
+watch:
+		source $(EZBUILD)/watcher.sh  && watchFolders "make" "$(SRCDIR)" "$(TESTDIR)"
 watch-test:
-		source $(EZBUILD)/watcher.sh "make test" "$(SRCDIR)" "$(TESTDIR)"
+		source $(EZBUILD)/watcher.sh && watchFolder "make test" "$(SRCDIR)" "$(TESTDIR)"
+watch-run:
+		source $(EZBUILD)/async.sh && source $(EZBUILD)/async_watcher.sh && asyncWatchFolders "make run" "$(SRCDIR)" "TESTDIR"
 test:						$(COBJ) $(CXXOBJ) $(TESTOBJ)
 		$(CXX) -o $(BINDIR)/$(TESTDIR)/$(TEST) $(COBJ) $(CXXOBJ) $(TESTOBJ) $(CXXOBJ)
 		./$(BINDIR)/$(TESTDIR)/$(TEST)
