@@ -16,9 +16,9 @@ TESTSRC		:=./misc/tests/utils/vmfill.cpp\
 # =============== PROJECT CONFIGURATION SECTION ===============================
 # =============================================================================
 # full generated binary name (with extension, relative to Makefile dir)
-NAME		:= libft.a
+NAME		:= libft.so
 # valid output types are : executable static shared wasm
-TYPE		:= static
+TYPE		:= shared
 # will pass debug flags
 DEBUG		:= 0
 # where cpp tests dirs are
@@ -84,17 +84,17 @@ endif
 # make rules
 all:                        $(NAME)
 make:
-		$(EZBUILD)/Makemakefile
+		$(EZBUILD)/Makemakefile -y
 update:
 		source $(EZBUILD)/update.sh && update
 run:
 		./$(NAME)
 watch:
-		source $(EZBUILD)/watcher.sh  && watchFolders "make" "$(SRCDIR) $(TESTDIR)"
+		source $(EZBUILD)/watcher.sh  && watchFolders "make make && make" "$(SRCDIR) $(TESTDIR)"
 watch-test:
-		source $(EZBUILD)/watcher.sh && watchFolders "make test" "$(SRCDIR) $(TESTDIR)"
+		source $(EZBUILD)/watcher.sh && watchFolders "make make && make test" "$(SRCDIR) $(TESTDIR)"
 watch-run:
-		source $(EZBUILD)/async.sh && source $(EZBUILD)/async_watcher.sh && asyncWatchFolders "make run" "$(SRCDIR)" "$(TESTDIR)"
+		source $(EZBUILD)/async.sh && source $(EZBUILD)/async_watcher.sh && asyncWatchFolders "make make && make run" "$(SRCDIR)" "$(TESTDIR)"
 test:						$(COBJ) $(CXXOBJ) $(TESTOBJ)
 		$(CXX) -o $(BINDIR)/$(TESTDIR)/$(TEST) $(COBJ) $(CXXOBJ) $(TESTOBJ) $(CXXOBJ)
 		./$(BINDIR)/$(TESTDIR)/$(TEST)
@@ -109,10 +109,14 @@ norme:
 release:
 		source $(EZBUILD)/release.sh && release
 $(BINDIR)/%.o:				$(SRCDIR)/%.c
+ifeq ($(TYPE),wasm)
+		$(EMCC)  -s ASSERTIONS=1 -s SAFE_HEAP=1 -s BINARYEN_ASYNC_COMPILATION=0 $(CFLAGS)		-c		$< -o					$@
+else
 		$(CC) $(CFLAGS)			-c		$< -o					$@
+endif
 $(BINDIR)/%.o:				$(SRCDIR)/%.cpp
 ifeq ($(CXXENABLED),1)
-        $(CXX) $(CXXFLAGS)		-c		$< -o					$@
+		$(CXX) $(CXXFLAGS)		-c		$< -o					$@
 endif
 $(BINDIR)/$(TESTDIR)/%.o:	$(TESTDIR)/%.cpp
 		$(CXX) $(CXXFLAGS)		-c		$< -o					$@

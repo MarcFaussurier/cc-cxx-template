@@ -11,11 +11,23 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <ft.h>
+//#include <ft.h>
+//#include <unistd.h>
 
-size_t	ft_strlen(const char *s)
+
+unsigned int	ft_strlen2(const char *s)
 {
-	size_t	i;
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
+		i += 1;
+	return (i);
+}
+
+unsigned int	ft_strlen(const char *s)
+{
+	unsigned int	i;
 
 	i = 0;
 	while (s[i])

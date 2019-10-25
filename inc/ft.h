@@ -13,6 +13,5 @@
 
 #ifndef FT_H
 # define FT_H
-#include <unistd.h>
-size_t	ft_strlen(const char *s);
+unsigned int	ft_strlen(const char *s);
 #endif
