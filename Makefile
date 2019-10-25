@@ -86,15 +86,15 @@ all:                        $(NAME)
 make:
 		$(EZBUILD)/Makemakefile
 update:
-		$(EZBUILD)/update-deps.sh
+		source $(EZBUILD)/update.sh && update
 run:
 		./$(NAME)
 watch:
-		source $(EZBUILD)/watcher.sh  && watchFolders "make" "$(SRCDIR)" "$(TESTDIR)"
+		source $(EZBUILD)/watcher.sh  && watchFolders "make" "$(SRCDIR) $(TESTDIR)"
 watch-test:
-		source $(EZBUILD)/watcher.sh && watchFolder "make test" "$(SRCDIR)" "$(TESTDIR)"
+		source $(EZBUILD)/watcher.sh && watchFolders "make test" "$(SRCDIR) $(TESTDIR)"
 watch-run:
-		source $(EZBUILD)/async.sh && source $(EZBUILD)/async_watcher.sh && asyncWatchFolders "make run" "$(SRCDIR)" "TESTDIR"
+		source $(EZBUILD)/async.sh && source $(EZBUILD)/async_watcher.sh && asyncWatchFolders "make run" "$(SRCDIR)" "$(TESTDIR)"
 test:						$(COBJ) $(CXXOBJ) $(TESTOBJ)
 		$(CXX) -o $(BINDIR)/$(TESTDIR)/$(TEST) $(COBJ) $(CXXOBJ) $(TESTOBJ) $(CXXOBJ)
 		./$(BINDIR)/$(TESTDIR)/$(TEST)
@@ -107,7 +107,7 @@ re:
 norme:
 		norminette
 release:
-		$(EZBUILD)/release.sh
+		source $(EZBUILD)/release.sh && release
 $(BINDIR)/%.o:				$(SRCDIR)/%.c
 		$(CC) $(CFLAGS)			-c		$< -o					$@
 $(BINDIR)/%.o:				$(SRCDIR)/%.cpp
