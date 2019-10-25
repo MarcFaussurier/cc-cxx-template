@@ -1,9 +1,9 @@
-# IDE
-.vscode/*
+vscode/*
 .idea/*
 *.swp
 *.swap
 *.bak
+tags
 
 # MacOS
 .DS_Store
