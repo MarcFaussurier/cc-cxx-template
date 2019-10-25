@@ -7,3 +7,9 @@
 [submodule "misc/deps/catch"]
 	path = misc/deps/catch
 	url = https://github.com/catchorg/Catch2
+[submodule "misc/deps/ezbuild"]
+	path = misc/deps/ezbuild
+	url = https://github.com/MarcFaussurier/ezbuild
+[submodule "misc/deps/catch2"]
+	path = misc/deps/catch2
+	url = https://github.com/catchorg/Catch2
